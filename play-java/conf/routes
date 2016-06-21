@@ -5,15 +5,17 @@
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 POST    /addnewword                 controllers.HomeController.addWord
-GET     /test/:message              controllers.HomeController.test(message: String)
 GET     /login                      controllers.HomeController.login
 POST    /login                      controllers.HomeController.authenticate
-
-# hier komt de pagina die word gebruikt als inlog compleet is.
+GET     /beheerpagina               controllers.HomeController.beheerPagina
+GET     /login/update/:position     controllers.HomeController.updateWord(position: Int)
+POST    /login/update               controllers.HomeController.databaseupdateWord
+GET     /singleword/:position       controllers.HomeController.singleWord(position: Int)
+GET     /login/delete/:position     controllers.HomeController.deleteWord(position:Int)
+POST    /login/updatefront          controllers.HomeController.updateFront
 GET     /addword                    controllers.HomeController.addWordForm
-GET     /index                      controllers.HomeController.index
 GET     /woorden                    controllers.HomeController.woorden
-#GET     /edit/:id              controllers.HomeController.edit(id:Long)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
